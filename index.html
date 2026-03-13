@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMAR BACHA - Freelancer Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    body { background: #f5f7fa; color: #2c3e50; line-height: 1.6; }
+    a { text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* Hero Section */
+    .hero-section { background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; text-align: center; padding: 100px 20px; }
+    .profile-image { width: 160px; height: 160px; border-radius: 50%; background: #667eea; margin: 0 auto 20px; overflow: hidden; border: 5px solid rgba(255,255,255,0.3); }
+    .hero-name { font-size: 48px; font-weight: 700; margin-bottom: 10px; }
+    .hero-title { font-size: 24px; margin-bottom: 20px; opacity: 0.9; }
+    .hero-tagline { font-size: 18px; max-width: 650px; margin: 0 auto 30px; line-height: 1.6; opacity: 0.9; }
+
+    /* Buttons */
+    .hero-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .btn { padding: 15px 35px; border-radius: 50px; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; border: none; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+    .btn-whatsapp { background: #25D366; color: white; }
+    .btn-whatsapp:hover { background: #20ba5a; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+    .btn-email { background: #4a90e2; color: white; }
+    .btn-email:hover { background: #357abd; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+
+    /* Sections */
+    .section { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
+    .section-title { font-size: 36px; font-weight: 700; text-align: center; margin-bottom: 15px; color: #1e3c72; position: relative; }
+    .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: #4a90e2; margin: 15px auto 0; border-radius: 3px; }
+    .section-subtitle { text-align: center; font-size: 18px; color: #7f8c8d; margin-bottom: 50px; }
+
+    /* About */
+    .about-card { background: white; padding: 50px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); max-width: 800px; margin: 0 auto; font-size: 18px; line-height: 1.8; color: #34495e; transition: transform 0.3s, box-shadow 0.3s; }
+    .about-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 25px; margin-top: 30px; }
+    .skill-card { padding: 25px; border-radius: 16px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.06); transition: all 0.3s; cursor: default; font-weight: 600; font-size: 16px; color: white; }
+    .skill-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(30,60,114,0.15); }
+
+    /* Colorful Skills */
+    .skill-canva { background: #4a90e2; }
+    .skill-youtube { background: #357ABD; }
+    .skill-logo { background: #1e529c; }
+    .skill-instagram { background: #5dade2; }
+    .skill-facebook { background: #2e86c1; }
+    .skill-tiktok { background: #3498db; }
+    .skill-social { background: #2980b9; }
+    .skill-ad { background: #1f618d; }
+    .skill-brand { background: #5dade2; }
+    .skill-presentation { background: #2e86c1; }
+    .skill-ebook { background: #4a90e2; }
+    .skill-cards { background: #357ABD; }
+    .skill-flyer { background: #1e529c; }
+    .skill-video { background: #5dade2; }
+    .skill-ai { background: #2980b9; }
+    .skill-web { background: #3498db; }
+    .skill-word { background: #1f618d; }
+    .skill-excel { background: #2e86c1; }
+    .skill-powerpoint { background: #4a90e2; }
+
+    /* Services */
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 30px; margin-top: 30px; }
+    .service-card { background: linear-gradient(135deg,#f8f9fa,#ffffff); padding: 40px 30px; border-radius: 20px; text-align: center; transition: all 0.3s; border: 2px solid #e9ecef; cursor: default; }
+    .service-card:hover { border-color: #4a90e2; transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+    .service-title { font-size: 22px; font-weight: 700; margin-bottom: 15px; color: #1e3c72; }
+    .service-description { font-size: 15px; color: #7f8c8d; line-height: 1.6; }
+
+    /* Contact & Footer */
+    .contact-section { background: linear-gradient(135deg,#1e3c72,#2a5298); color: white; text-align: center; padding: 80px 20px; }
+    .contact-text { font-size: 18px; margin-bottom: 40px; line-height: 1.6; }
+    .footer { background: #1a2a3a; color: white; text-align: center; padding: 30px 20px; font-size: 14px; }
+
+    @media(max-width:768px){ .hero-name{font-size:36px;} .hero-title{font-size:20px;} .section{padding:60px 20px;} .section-title{font-size:28px;} .skills-grid, .services-grid{grid-template-columns:1fr;} .hero-buttons{flex-direction:column; gap:15px;} }
+  </style>
+</head>
+<body>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="profile-image"><img src="c:\Users\AMAR BACHA\Desktop\index.htmlprofile.jpg.jpeg" alt="AMAR BACHA profile photo"></div>
+  <h1 class="hero-name">AMAR BACHA</h1>
+  <p class="hero-title">Multi-Skilled Freelancer</p>
+  <p class="hero-tagline">Delivering high-quality creative designs, social media visuals, AI-assisted work, and professional business solutions worldwide.</p>
+  <div class="hero-buttons">
+    <a href="https://wa.me/03155176620" target="_blank" class="btn btn-whatsapp">💬 WhatsApp Me</a>
+    <a href="mailto:amarbacha267@gmail.com" class="btn btn-email">✉️ Email Me</a>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="section">
+  <h2 class="section-title">About Me</h2>
+  <p class="section-subtitle">Professional, multi-skilled freelancer</p>
+  <div class="about-card">Hello! I'm AMAR BACHA, a versatile freelancer with expertise in Canva, social media design, YouTube thumbnails, logos, MS Office work, AI-assisted designs, and more. I create professional visuals that engage and convert clients across multiple platforms. Let's bring your ideas to life!</div>
+</section>
+
+<!-- Skills Section -->
+<section class="section">
+  <h2 class="section-title">My Skills</h2>
+  <p class="section-subtitle">Comprehensive creative and digital expertise</p>
+  <div class="skills-grid">
+    <div class="skill-card skill-canva">🎨 Canva Design</div>
+    <div class="skill-card skill-youtube">🎬 YouTube Thumbnails</div>
+    <div class="skill-card skill-logo">🏷️ Logo Design</div>
+    <div class="skill-card skill-instagram">📸 Instagram Posts & Stories</div>
+    <div class="skill-card skill-facebook">👥 Facebook Posts</div>
+    <div class="skill-card skill-tiktok">🎵 TikTok Content</div>
+    <div class="skill-card skill-social">💫 Social Media Creatives</div>
+    <div class="skill-card skill-ad">📢 Ad Creatives</div>
+    <div class="skill-card skill-brand">🎯 Brand Identity</div>
+    <div class="skill-card skill-presentation">📊 Presentation Design</div>
+    <div class="skill-card skill-ebook">📖 Ebook Design</div>
+    <div class="skill-card skill-cards">💼 Business Cards</div>
+    <div class="skill-card skill-flyer">📄 Flyers & Posters</div>
+    <div class="skill-card skill-video">🎥 Video Editing</div>
+    <div class="skill-card skill-ai">🤖 AI-Assisted Design</div>
+    <div class="skill-card skill-web">🌐 Website Design</div>
+    <div class="skill-card skill-word">📝 MS Word</div>
+    <div class="skill-card skill-excel">📊 MS Excel</div>
+    <div class="skill-card skill-powerpoint">🎞️ MS PowerPoint</div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="section">
+  <h2 class="section-title">Services I Offer</h2>
+  <p class="section-subtitle">Professional solutions for your business</p>
+  <div class="services-grid">
+    <div class="service-card">🎨<h3 class="service-title">Canva Graphic Design</h3><p class="service-description">Custom graphics and templates using Canva for your business or social media.</p></div>
+    <div class="service-card">📱<h3 class="service-title">Social Media Design Packages</h3><p class="service-description">Complete social media content for Instagram, Facebook, TikTok, and more.</p></div>
+    <div class="service-card">🎬<h3 class="service-title">YouTube Thumbnail Design</h3><p class="service-description">Eye-catching thumbnails that boost views and engagement.</p></div>
+    <div class="service-card">🏷️<h3 class="service-title">Logo & Brand Identity</h3><p class="service-description">Professional logos and complete brand identity design.</p></div>
+    <div class="service-card">💼<h3 class="service-title">Presentations & Office Work</h3><p class="service-description">MS Word, Excel, PowerPoint professional work for businesses.</p></div>
+    <div class="service-card">🌐<h3 class="service-title">Canva Website Design</h3><p class="service-description">Responsive and modern websites created with Canva.</p></div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section contact-section">
+  <h2 class="section-title">Let's Work Together</h2>
+  <p class="section-subtitle">Ready to start your project?</p>
+  <p class="contact-text">I'm available for freelance projects worldwide. Let's chat and create something amazing together!</p>
+  <div class="hero-buttons">
+    <a href="https://wa.me/03155176620" target="_blank" class="btn btn-whatsapp">💬 WhatsApp Me</a>
+    <a href="mailto:amarbacha267@gmail.com" class="btn btn-email">✉️ Email Me</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">© 2026 AMAR BACHA. All rights reserved.</footer>
+
+</body>
+</html>
